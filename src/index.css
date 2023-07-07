@@ -1,0 +1,63 @@
+.eyes-container {
+  height: 530px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 250px auto;
+  position: relative;
+}
+.eyes-container-grid {
+  --num-columns: 5;
+  --num-rows: 5;
+  width: 100%;
+  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(var(--num-columns), 1fr);
+  grid-template-rows: repeat(var(--num-rows), 1fr);
+  row-gap: 40px;
+  column-gap: 40px;
+}
+.eyes-container-grid .eye {
+  --pupil-x: 0;
+  --pupil-y: 0;
+  --color-whites: var(--fg, #6c4aff);
+  --color-lid: var(--bg, #6c4aff);
+  --color-pupil: var(--bg, #fff);
+  --scale-x: 1;
+  --scale-y: 1;
+  --top: 0;
+  --angle: 0deg;
+  max-width: 105px;
+  max-height: 55px;
+  position: relative;
+  fill: none;
+  top: calc(var(--top) * 1px);
+  transform: scaleX(var(--scale-x)) scaleY(var(--scale-y)) rotate(var(--angle));
+}
+.eyes-container-grid .eye .lids {
+  stroke: var(--color-lid);
+  stroke-width: 5%;
+}
+.eyes-container-grid .eye .whites {
+  fill: var(--color-whites);
+}
+.eyes-container-grid .eye .pupil {
+  fill: var(--color-pupil);
+  cx: 500px;
+  cy: 500px;
+}
+.eyes-container-grid .eye .pupil-group {
+  transform: translate(calc(var(--pupil-x) * 1px), calc(var(--pupil-y) * 1px));
+}
+.eyes-container-lock {
+  position: absolute;
+  display: none;
+  margin: auto;
+  z-index: 2;
+  width: 190px;
+  top: -67%;
+}
+@media screen and (max-width: 600px) {
+  .eyes-container {
+    margin: 30px auto;
+  }
+}
